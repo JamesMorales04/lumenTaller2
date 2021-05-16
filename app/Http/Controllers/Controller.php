@@ -11,11 +11,6 @@ class Controller extends BaseController
         "https://taller2-software.s3.amazonaws.com/Imagenes/Imagen"
     );
 
-    public function index()
-    {
-        $randomNumber = (rand(0,(14)));
-        $randomImage = Controller::$images[0].$randomNumber.".jpg";
-        return view("image/image");
-    }
+    
     
 }
