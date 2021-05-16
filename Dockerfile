@@ -10,6 +10,10 @@ RUN composer install \
     --no-scripts \
     --prefer-dist
     
+RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 777 /var/www/
+RUN chmod -R 777 /var/www/html
+
 RUN a2enmod rewrite
 RUN service apache2 restart
