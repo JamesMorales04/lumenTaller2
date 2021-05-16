@@ -8,7 +8,9 @@
         
             <div class="card">
                 <img src="{{ $data }}"class="css-class" alt="alt text">
-            </div>
+		
+		{{gethostbyname(gethostname())}}
+	     </div>
 
         </div>
     </div>
