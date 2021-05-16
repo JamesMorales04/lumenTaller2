@@ -8,24 +8,14 @@ use Storage;
 class Controller extends BaseController
 {
     public static $images = array(
-        "Imagen1.png", 
-        "Anyone who has never made a mistake has never tried anything new - Albert Einstein",
-        "Never Stop Exploring - The North Face",
-        "Be yourself; everyone else is already taken - Oscar Wilde",
-        "So many books, so little time - Frank Zappa",
-        "Be the change that you wish to see in the world - Mahatma Gandhi",
+        "https://taller2-software.s3.amazonaws.com/Imagenes/Imagen"
     );
 
     public function index()
     {
-        $totalImages = (count(Controller::$images));
-        $randomNumber = (rand(0,($totalImages-1)));
-        $randomImage = Controller::$images[0];
-        return response()->json(['quote' => Controller::getImage($randomImage)]);
+        $randomNumber = (rand(0,(14)));
+        $randomImage = Controller::$images[0].$randomNumber.".jpg";
+        return view("image/image");
     }
     
-    public static function getImage ($imagePath)
-    {
-        return Storage::disk('s3')->response('Images/'.$imagePath);
-    }
 }
